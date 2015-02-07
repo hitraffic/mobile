@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kevnshin/mobile.git"
+    "url": "https://github.com/hitraffic/mobile.git"
   },
   "author": "Marifel Barbasa && Kevin Shin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kevnshin/mobile/issues"
+    "url": "https://github.com/hitraffic/mobile/issues"
   },
-  "homepage": "https://github.com/kevnshin/mobile"
+  "homepage": "https://github.com/hitraffic/mobile"
 }
