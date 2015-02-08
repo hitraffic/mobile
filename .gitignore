@@ -1,6 +1,6 @@
 # Generic files
 .DS_Store
-gulpfile.js
+
 
 # Logs
 logs
@@ -29,8 +29,8 @@ build/Release
 node_modules/
 bower_components/
 platforms/
+www/lib
 plugins/
-www/lib/
 
 # Users Environment Variables
 .lock-wscript
