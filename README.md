@@ -8,10 +8,13 @@ A hybrid mobile app powered by the Ionic Framework.  Utilizes the hitraffic API 
 Installation
 -----------------------------
 
-1. Fork and clone this repo
-2. Run `npm install`
-3. Run `bower install`
-4. Run `ionic lib update` and enter `yes` when prompted
+1. Install Cordova by running `sudo npm install -g cordova`
+2. Install Ionic by running `sudo npm install -g ionic`
+3. Install the iOS Simulator command-line tool by running `sudo npm install -g ios-sim`
+4. Fork and clone this repo
+5. Navigate to this project's root directory
+6. Run `npm install`
+7. Run `bower install`
 
 ### Run the app in the browser:
 
