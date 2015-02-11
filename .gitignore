@@ -1,7 +1,6 @@
 # Generic files
 .DS_Store
 
-
 # Logs
 logs
 *.log
@@ -29,10 +28,7 @@ build/Release
 node_modules/
 bower_components/
 platforms/
-www/lib
 plugins/
 
 # Users Environment Variables
 .lock-wscript
-
-
