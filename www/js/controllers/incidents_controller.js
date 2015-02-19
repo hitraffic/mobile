@@ -1,4 +1,4 @@
-angular.module('mobility.controllers.incidents', [])
+angular.module('mobility')
 
 .controller('IncidentsController', function($scope, Incidents) {
   $scope.things = ['A', 'Set', 'Of', 'Things', 'From', 'IncidentsController'];

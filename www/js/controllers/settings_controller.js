@@ -1,4 +1,4 @@
-angular.module('mobility.controllers.settings', [])
+angular.module('mobility')
 
 .controller('SettingsController', function($scope) {
   $scope.settingsText = 'Settings Page';

@@ -1,11 +1,6 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 angular.module('mobility', [
-  'ionic',
-  'mobility.controllers.splash',
-  'mobility.controllers.map',
-  'mobility.controllers.incidents',
-  'mobility.controllers.settings',
-  'mobility.services'
+  'ionic'
 ])
 
 .run(function($ionicPlatform) {

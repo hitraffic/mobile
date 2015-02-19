@@ -1,4 +1,4 @@
-angular.module('mobility.controllers.map', [])
+angular.module('mobility')
 
 .controller('MapController', function($scope, $stateParams, Incidents) {
   $scope.items = ['A', 'List', 'Of', 'Items', 'From', 'MapController'];
