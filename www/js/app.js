@@ -16,48 +16,33 @@ angular.module('mobility', ['ionic', 'mobility.controllers', 'mobility.services'
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
+  // For any unmatched URL, redirect to /home/map
+  $urlRouterProvider.otherwise('/home/map');
+  // Set up states
   $stateProvider
-
-  // Set up an abstract state for the tabs directive
-  .state('tab', {
-    url: "/tab",
-    abstract: true,
-    templateUrl: "templates/tabs.html"
-  })
-
-  .state('tab.incidents', {
-    url: '/incidents',
-    views: {
-      'tab-incidents': {
-        templateUrl: 'templates/tab-incidents.html',
-        controller: 'IncidentsCtrl'
-      }
-    }
-  })
-  .state('tab.incident-detail', {
-    url: '/incidents/:incidentId',
-    views: {
-      'tab-incidents': {
-        templateUrl: 'templates/incident-detail.html',
-        controller: 'IncidentDetailCtrl'
-      }
-    }
-  })
-
-  .state('tab.account', {
-    url: '/account',
-    views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
-      }
-    }
-  });
-
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/incidents');
+    .state('splash', {
+      url: '/splash',
+      templateUrl: 'templates/splash.html',
+      controller: 'SplashController'
+    })
+    .state('home', {
+      url: '/home',
+      abstract: true,
+      templateUrl: 'templates/home.html'
+    })
+    .state('home.map', {
+      url: '/map',
+      templateUrl: 'templates/home.map.html',
+      controller: 'MapController'
+    })
+    .state('home.incidents', {
+      url: '/incidents',
+      templateUrl: 'templates/home.incidents.html',
+      controller: 'IncidentsController'
+    })
+    .state('home.settings', {
+      url: '/settings',
+      templateUrl: 'templates/home.settings.html',
+      controller: 'SettingsController'
+    });
 });
