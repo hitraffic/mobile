@@ -1,4 +1,4 @@
-angular.module('mobility.services', [])
+angular.module('mobility')
 
 .factory('Incidents', function() {
   // Traffic API mock data
