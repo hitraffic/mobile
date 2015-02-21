@@ -12,7 +12,7 @@ angular.module('mobility')
     area: "KAKAAKO",
     lat: 21.297355,
     lng: -157.861581,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }, {
     id: 1,
     date: 1423528864,
@@ -23,7 +23,7 @@ angular.module('mobility')
     area: "KAILUA",
     lat: 21.412146,
     lng: -157.746353,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }, {
     id: 2,
     date: 1423530086,
@@ -34,7 +34,7 @@ angular.module('mobility')
     area: null,
     lat: null,
     lng: null,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }, {
     id: 3,
     date: 1423530024,
@@ -45,7 +45,7 @@ angular.module('mobility')
     area: "PEARL CITY",
     lat: 21.389531,
     lng: -157.959728,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }, {
     id: 4,
     date: 1423529873,
@@ -56,7 +56,7 @@ angular.module('mobility')
     area: "PEARL HBR",
     lat: 21.413385,
     lng: -157.800201,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }, {
     id: 5,
     date: 1423531318,
@@ -67,7 +67,7 @@ angular.module('mobility')
     area: "KANEOHE",
     lat: 21.403316,
     lng: -157.797841,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }, {
     id: 6,
     date: 1423530698,
@@ -78,7 +78,7 @@ angular.module('mobility')
     area: "AIEA",
     lat: null,
     lng: null,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }, {
     id: 7,
     date: 1423532298,
@@ -89,7 +89,7 @@ angular.module('mobility')
     area: "KANEOHE",
     lat: 21.41319,
     lng: -157.810308,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }, {
     id: 8,
     date: 1423532297,
@@ -100,7 +100,7 @@ angular.module('mobility')
     area: "KANEOHE",
     lat: 21.411072,
     lng: -157.807561,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }, {
     id: 9,
     date: 1423532261,
@@ -111,7 +111,7 @@ angular.module('mobility')
     area: "MAILI",
     lat: 21.424496,
     lng: -158.166762,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }, {
     id: 10,
     date: 1423532153,
@@ -122,7 +122,7 @@ angular.module('mobility')
     area: "NUUANU",
     lat: null,
     lng: null,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }, {
     id: 11,
     date: 1423531607,
@@ -133,7 +133,7 @@ angular.module('mobility')
     area: "HONOLULU",
     lat: 21.294117,
     lng: -157.836915,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }, {
     id: 12,
     date: 1423532776,
@@ -144,7 +144,7 @@ angular.module('mobility')
     area: "KAIMUKI",
     lat: null,
     lng: null,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }, {
     id: 13,
     date: 1423532755,
@@ -155,7 +155,7 @@ angular.module('mobility')
     area: "NUUANU",
     lat: 21.342531,
     lng: -157.832538,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }, {
     id: 14,
     date: 1423532677,
@@ -166,7 +166,7 @@ angular.module('mobility')
     area: "KALIHI",
     lat: 21.335616,
     lng: -157.859059,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }, {
     id: 15,
     date: 1423533967,
@@ -177,7 +177,7 @@ angular.module('mobility')
     area: "KALIHI",
     lat: null,
     lng: null,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }, {
     id: 16,
     date: 1423534921,
@@ -188,7 +188,7 @@ angular.module('mobility')
     area: "KALAELOA",
     lat: 21.326741,
     lng: -158.056985,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }, {
     id: 17,
     date: 1423534257,
@@ -199,7 +199,7 @@ angular.module('mobility')
     area: "AIRPORT",
     lat: 21.332778,
     lng: -157.910043,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }, {
     id: 18,
     date: 1423536796,
@@ -210,7 +210,7 @@ angular.module('mobility')
     area: "AIEA",
     lat: null,
     lng: null,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }, {
     id: 19,
     date: 1423536453,
@@ -221,7 +221,7 @@ angular.module('mobility')
     area: "HAWAII KAI",
     lat: 21.302793,
     lng: -157.683965,
-    icon: '/img/ionic.png'
+    icon: '../../img/ionic.png'
   }];
 
   return {
