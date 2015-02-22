@@ -4,6 +4,7 @@ angular.module('mobility').controller('MapController', function(
   $stateParams,
   $ionicModal,
   $ionicPopup,
+  $compile,
   LocationsService,
   InstructionsService,
   Incidents
@@ -32,21 +33,22 @@ angular.module('mobility').controller('MapController', function(
       $scope.incidents = Incidents.all();
       var incident_num = 1; 
       $scope.incidents.forEach(function (incident, index, array) {
+        var html = "<h5 class='incident_type'>" + incident.type + "</h5>"
+          + "<p>Area: " + incident.area + "</p>"
+          + "<p>Address: " + incident.address + "</p>";
         var marker = {
           lat: incident.lat,
           lng: incident.lng,
-          message: incident.type + "\nArea: " + incident.area + "\nAddress: " + incident.address
+          message: html
         }
+        //Only add to list of markers if there are coordinates
         if(marker.lat !== null || marker.lng !== null){
           $scope.map.markers["Incident" + incident_num] = marker;
         }
         incident_num++;
-        console.log($scope.map.markers);
       });
 
-
       $scope.goTo();
-
 
     });
 
@@ -56,7 +58,7 @@ angular.module('mobility').controller('MapController', function(
      * Center map on specific saved location
      * @param locationKey
      */
-    $scope.goTo = function(locationKey) {
+    $scope.goTo = function() {
 
       // var location = LocationsService.savedLocations[locationKey];
       var location = LocationsService;
