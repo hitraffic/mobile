@@ -4,7 +4,7 @@ angular.module('mobility')
   // Traffic API mock data
   var incidents = [{
     id: 0,
-    date: 1423529023,
+    date: "2/9/2015, 2:43 PM",
     code: "550",
     type: "MOTOR VEHICLE COLLISION",
     address: "ALA MOANA & CORAL ST",
@@ -12,10 +12,10 @@ angular.module('mobility')
     area: "KAKAAKO",
     lat: 21.297355,
     lng: -157.861581,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }, {
     id: 1,
-    date: 1423528864,
+    date: "2/9/2015, 2:41 PM",
     code: "632",
     type: "HAZARDOUS DRIVER",
     address: "N KAINALU DR & UILAMA ST",
@@ -23,10 +23,10 @@ angular.module('mobility')
     area: "KAILUA",
     lat: 21.412146,
     lng: -157.746353,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }, {
     id: 2,
-    date: 1423530086,
+    date: "2/9/2015, 3:01 PM",
     code: "633",
     type: "STALLED/HAZARDOUS VEHICLE",
     address: "KALANI/KEAHOLE",
@@ -34,10 +34,10 @@ angular.module('mobility')
     area: null,
     lat: null,
     lng: null,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }, {
     id: 3,
-    date: 1423530024,
+    date: "2/9/2015, 3:00 PM",
     code: "630",
     type: "TRAFFIC NUISANCE OR PARKING VIOLATION",
     address: "KAMEHAMEHA HWY & KULEANA RD",
@@ -45,10 +45,10 @@ angular.module('mobility')
     area: "PEARL CITY",
     lat: 21.389531,
     lng: -157.959728,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }, {
     id: 4,
-    date: 1423529873,
+    date: "2/9/2015, 2:57 PM",
     code: "550",
     type: "MOTOR VEHICLE COLLISION",
     address: "99058X KAM HWY",
@@ -56,10 +56,10 @@ angular.module('mobility')
     area: "PEARL HBR",
     lat: 21.413385,
     lng: -157.800201,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }, {
     id: 5,
-    date: 1423531318,
+    date: "2/9/2015, 3:21 PM",
     code: "550",
     type: "MOTOR VEHICLE COLLISION",
     address: "AUMOKU ST & KANEOHE BAY DR",
@@ -67,10 +67,10 @@ angular.module('mobility')
     area: "KANEOHE",
     lat: 21.403316,
     lng: -157.797841,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }, {
     id: 6,
-    date: 1423530698,
+    date: "2/9/2015, 3:11 PM",
     code: "633",
     type: "STALLED/HAZARDOUS VEHICLE",
     address: "14X H1W FWY",
@@ -78,10 +78,10 @@ angular.module('mobility')
     area: "AIEA",
     lat: null,
     lng: null,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }, {
     id: 7,
-    date: 1423532298,
+    date: "2/9/2015, 3:38 PM",
     code: "550",
     type: "MOTOR VEHICLE COLLISION",
     address: "KAHEKILI HWY & KAHUHIPA ST",
@@ -89,10 +89,10 @@ angular.module('mobility')
     area: "KANEOHE",
     lat: 21.41319,
     lng: -157.810308,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }, {
     id: 8,
-    date: 1423532297,
+    date: "2/9/2015, 3:38 PM",
     code: "550",
     type: "MOTOR VEHICLE COLLISION",
     address: "45072X KEAAHALA RD",
@@ -100,10 +100,10 @@ angular.module('mobility')
     area: "KANEOHE",
     lat: 21.411072,
     lng: -157.807561,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }, {
     id: 9,
-    date: 1423532261,
+    date: "2/9/2015, 3:37 PM",
     code: "550",
     type: "MOTOR VEHICLE COLLISION",
     address: "87111X PAAKEA RD",
@@ -111,10 +111,10 @@ angular.module('mobility')
     area: "MAILI",
     lat: 21.424496,
     lng: -158.166762,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }, {
     id: 10,
-    date: 1423532153,
+    date: "2/9/2015, 3:35 PM",
     code: "632",
     type: "HAZARDOUS DRIVER",
     address: "NUUANU AVE & PALI HWY",
@@ -122,10 +122,10 @@ angular.module('mobility')
     area: "NUUANU",
     lat: null,
     lng: null,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }, {
     id: 11,
-    date: 1423531607,
+    date: "2/9/2015, 3:26 PM",
     code: "550",
     type: "MOTOR VEHICLE COLLISION",
     address: "KALAKAUA AVE & KANUNU ST",
@@ -133,10 +133,10 @@ angular.module('mobility')
     area: "HONOLULU",
     lat: 21.294117,
     lng: -157.836915,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }, {
     id: 12,
-    date: 1423532776,
+    date: "2/9/2015, 3:46 PM",
     code: "550",
     type: "MOTOR VEHICLE COLLISION",
     address: "72X 8TH AVE",
@@ -144,10 +144,10 @@ angular.module('mobility')
     area: "KAIMUKI",
     lat: null,
     lng: null,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }, {
     id: 13,
-    date: 1423532755,
+    date: "2/9/2015, 3:45 PM",
     code: "630",
     type: "TRAFFIC NUISANCE OR PARKING VIOLATION",
     address: "PALI HWY & WAOKANAKA ST",
@@ -155,10 +155,10 @@ angular.module('mobility')
     area: "NUUANU",
     lat: 21.342531,
     lng: -157.832538,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }, {
     id: 14,
-    date: 1423532677,
+    date: "2/9/2015, 3:44 PM",
     code: "550",
     type: "MOTOR VEHICLE COLLISION",
     address: "174X KEALIA DR",
@@ -166,10 +166,10 @@ angular.module('mobility')
     area: "KALIHI",
     lat: 21.335616,
     lng: -157.859059,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }, {
     id: 15,
-    date: 1423533967,
+    date: "2/9/2015, 4:06 PM",
     code: "633",
     type: "STALLED/HAZARDOUS VEHICLE",
     address: "20X H1E FWY",
@@ -177,10 +177,10 @@ angular.module('mobility')
     area: "KALIHI",
     lat: null,
     lng: null,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }, {
     id: 16,
-    date: 1423534921,
+    date: "2/9/2015, 4:22 PM",
     code: "560",
     type: "TRAFFIC INCIDENT - NO COLLISION",
     address: "421X BOUGAINVILLE AVE",
@@ -188,10 +188,10 @@ angular.module('mobility')
     area: "KALAELOA",
     lat: 21.326741,
     lng: -158.056985,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }, {
     id: 17,
-    date: 1423534257,
+    date: "2/9/2015, 4:10 PM",
     code: "550",
     type: "MOTOR VEHICLE COLLISION",
     address: "330X AOLELE ST",
@@ -199,10 +199,10 @@ angular.module('mobility')
     area: "AIRPORT",
     lat: 21.332778,
     lng: -157.910043,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }, {
     id: 18,
-    date: 1423536796,
+    date: "2/9/2015, 4:53 PM",
     code: "632",
     type: "HAZARDOUS DRIVER",
     address: "13X H1W FWY",
@@ -210,10 +210,10 @@ angular.module('mobility')
     area: "AIEA",
     lat: null,
     lng: null,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }, {
     id: 19,
-    date: 1423536453,
+    date: "2/9/2015, 4:47 PM",
     code: "550",
     type: "MOTOR VEHICLE COLLISION",
     address: "99X KALAPAKI ST",
@@ -221,12 +221,54 @@ angular.module('mobility')
     area: "HAWAII KAI",
     lat: 21.302793,
     lng: -157.683965,
-    icon: '../../img/ionic.png'
+    icon: 'img/ionic.png'
   }];
+
+  var ICON_TYPES = {
+    DEFAULT: 'img/ionic.png',
+    MOTOR_VEHICLE_COLLISION: 'img/ionic.png',
+    HAZARDOUS_DRIVER: 'img/ionic.png',
+    STALLED_HAZARDOUS_VEHICLE: 'img/ionic.png',
+    TRAFFIC_NUISANCE_OR_PARKING_VIOLATION: 'img/ionic.png',
+    TRAFFIC_INCIDENT_NO_COLLISION: 'img/ionic.png'
+  };
+
+  // Display user-friendly text if values are null
+  function prepareDataForDisplay(data) {
+    data.forEach(function(item) {
+      item.area = setDisplayText(item.area, 'area');
+      item.address = setDisplayText(item.address, 'address');
+      item.date = setDisplayText(item.date, 'date');
+      // Set the icon to display based on type of incident
+      item.icon = setIconType(item.type);
+    });
+    return data;
+  }
+
+  function setDisplayText(property, propertyName) {
+    return property ? property: 'No ' + propertyName + ' provided';
+  }
+
+  function setIconType(type) {
+    switch(type) {
+      case 'MOTOR VEHICLE COLLISION':
+        return ICON_TYPES.MOTOR_VEHICLE_COLLISION;
+      case 'HAZARDOUS DRIVER':
+        return ICON_TYPES.HAZARDOUS_DRIVER;
+      case 'STALLED/HAZARDOUS VEHICLE':
+        return ICON_TYPES.STALLED_HAZARDOUS_VEHICLE;
+      case 'TRAFFIC NUISANCE OR PARKING VIOLATION':
+        return ICON_TYPES.TRAFFIC_NUISANCE_OR_PARKING_VIOLATION;
+      case 'TRAFFIC INCIDENT - NO COLLISION':
+        return ICON_TYPES.TRAFFIC_INCIDENT_NO_COLLISION;
+      default:
+        return ICON_TYPES.DEFAULT;
+    }
+  }
 
   return {
     all: function() {
-      return incidents;
+      return prepareDataForDisplay(incidents);
     },
     remove: function(incident) {
       incidents.splice(incidents.indexOf(incident), 1);

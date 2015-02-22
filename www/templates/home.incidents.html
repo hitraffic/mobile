@@ -16,11 +16,17 @@
   <!-- Incidents Content -->
   <md-content class="incidents-content">
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="incident in incidents" type="item-text-wrap">
-        <img ng-src="{{incident.icon}}" alt="incident type">
-        <h2>{{incident.area}}</h2>
-        <p>{{incident.address}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
+      <ion-item class="incidents-item item-remove-animate item-avatar item-icon-right" ng-repeat="incident in incidents" type="item-text-wrap">
+        <div class="incidents-item-content clearfix" on-tap="closeList()">
+          <div class="incidents-item-type">
+            <img ng-src="{{incident.icon}}" alt="incident type">
+          </div>
+          <div class="incidents-item-details">
+            <h2>{{incident.area}}</h2>
+            <p>{{incident.address}}</p>
+            <p>{{incident.date}}</p>
+          </div>
+        </div>
       </ion-item>
     </ion-list>
   </md-content>

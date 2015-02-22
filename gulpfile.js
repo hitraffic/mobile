@@ -38,7 +38,7 @@ gulp.task('bower', function(done) {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.sass, ['sass', 'styles']);
 });
 
 gulp.task('install', ['git-check'], function() {
