@@ -7,6 +7,8 @@
 
     <!-- compiled css output -->
     <link href="css/ionic.app.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/leaflet.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
     <!-- Angulars Material CSS -->
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
@@ -24,7 +26,12 @@
     <!-- Angular Material JS -->
     <script src="bower_components/angular-material/angular-material.min.js"></script>
 
+    <!-- Leaflet -->
+    <script src="lib/leaflet/leaflet.js"></script>
+    <script src="lib/leaflet/angular-leaflet-directive.min.js"></script>
+
     <!-- cordova script (this will be a 404 during development) -->
+    <script src="bower_components/ngCordova/dist/ng-cordova.min.js"></script>
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
@@ -33,7 +40,11 @@
     <script src="js/controllers/map_controller.js"></script>
     <script src="js/controllers/incidents_controller.js"></script>
     <script src="js/controllers/settings_controller.js"></script>
-    <script src="js/services.js"></script>
+    <script src="js/services/incidents_services.js"></script>
+    <script src="js/services/instructions_services.js"></script>
+    <script src="js/services/locations_services.js"></script>
+    <script src="js/directives/igTruncate.js"></script>
+
   </head>
   <body ng-app="mobility">
     <br>
