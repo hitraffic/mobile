@@ -13,3 +13,32 @@ body {
 
 .tabs.border-top {
   border-top: 1px solid #ddd !important; }
+
+.incidents .incidents-header {
+  padding-bottom: 20px; }
+  .incidents .incidents-header label.incidents-search-box {
+    padding-right: 20px; }
+    .incidents .incidents-header label.incidents-search-box i.incidents-filter-icon {
+      cursor: pointer; }
+
+.incidents-item {
+  padding: 16px;
+  cursor: pointer; }
+  .incidents-item .incidents-item-content .incidents-item-type {
+    float: left;
+    width: 15%; }
+    .incidents-item .incidents-item-content .incidents-item-type img {
+      width: 100%; }
+  .incidents-item .incidents-item-content .incidents-item-details {
+    padding-left: 16px;
+    float: left;
+    width: 85%; }
+    .incidents-item .incidents-item-content .incidents-item-details h2 {
+      margin: 0;
+      margin-bottom: 8px; }
+    .incidents-item .incidents-item-content .incidents-item-details p {
+      margin: 0;
+      line-height: 1.5em; }
+      .incidents-item .incidents-item-content .incidents-item-details p:last-of-type {
+        font-size: 0.7em;
+        letter-spacing: 1px; }
