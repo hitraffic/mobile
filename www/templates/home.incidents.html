@@ -1,4 +1,27 @@
-<h3>List of home.incidents things</h3>
-<ul>
-  <li ng-repeat="thing in things">{{thing}}</li>
-</ul>
+<md-button class="incidents-toggle md-primary" on-tap="toggleList()">
+  <!-- TODO: Comment icon goes here -->
+  <span>List</span>
+</md-button>
+
+<!-- Incidents Side Nav -->
+<md-sidenav class="incidents md-sidenav-left md-whiteframe-z2" md-component-id="left">
+  <!-- Incidents Header -->
+  <md-toolbar class="incidents-header">
+    <md-button class="md-toolbar-tools md-primary" on-tap="closeList()">
+      <!-- TODO: Arrow left icon goes here -->
+      <span>Incidents</span>
+    </md-button>
+  </md-toolbar>
+
+  <!-- Incidents Content -->
+  <md-content class="incidents-content">
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="incident in incidents" type="item-text-wrap">
+        <img ng-src="{{incident.icon}}" alt="incident type">
+        <h2>{{incident.area}}</h2>
+        <p>{{incident.address}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </md-content>
+</md-sidenav>
