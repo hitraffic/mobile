@@ -3,6 +3,10 @@ body {
   min-height: 100%;
 }
 
+#map {
+  margin-top: 50px;
+}
+
 .scroll, .angular-leaflet-map {
   height: 100%;
 }
