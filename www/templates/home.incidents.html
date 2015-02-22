@@ -1,16 +1,19 @@
-<md-button class="incidents-toggle md-primary" on-tap="toggleList()">
-  <!-- TODO: Comment icon goes here -->
-  <span>List</span>
+<md-button class="incidents-toggle" on-tap="toggleList()">
+  <i class="icon ion-navicon"></i>
 </md-button>
 
 <!-- Incidents Side Nav -->
 <md-sidenav class="incidents md-sidenav-left md-whiteframe-z2" md-component-id="left">
   <!-- Incidents Header -->
   <md-toolbar class="incidents-header">
-    <md-button class="md-toolbar-tools md-primary" on-tap="closeList()">
-      <!-- TODO: Arrow left icon goes here -->
-      <span>Incidents</span>
-    </md-button>
+    <div class="list list-inset">
+      <label class="incidents-search-box item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Search">
+        <!-- TODO: Implement filter UI -->
+        <i class="incidents-filter-icon icon ion-arrow-down-b placeholder-icon" on-tap="closeList()"></i>
+      </label>
+    </div>
   </md-toolbar>
 
   <!-- Incidents Content -->

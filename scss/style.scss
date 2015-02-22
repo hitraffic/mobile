@@ -20,7 +20,26 @@ body {
 }
 
 
+// __________________
+//
 // INCIDENTS STYLES
+// __________________
+
+.incidents {
+  // background-color: pink;
+  .incidents-header {
+    // background-color: yellow;
+    padding-bottom: 20px;
+    label.incidents-search-box {
+      // background-color: lightgreen;
+      padding-right: 20px;
+      i.incidents-filter-icon {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 .incidents-item {
   // background-color: tan;
   padding: 16px;
