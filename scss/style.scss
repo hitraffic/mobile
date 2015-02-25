@@ -22,3 +22,62 @@ body {
 .tabs.border-top {
   border-top: 1px solid #ddd !important;
 }
+
+
+// __________________
+//
+// INCIDENTS STYLES
+// __________________
+
+.incidents {
+  // background-color: pink;
+  .incidents-header {
+    // background-color: yellow;
+    padding-bottom: 20px;
+    label.incidents-search-box {
+      // background-color: lightgreen;
+      padding-right: 20px;
+      i.incidents-clear-search {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.incidents-item {
+  // background-color: tan;
+  padding: 16px;
+  cursor: pointer;
+  .incidents-item-content {
+    // background-color: orange;
+    .incidents-item-type {
+      // background-color: pink;
+      float: left;
+      width: 15%;
+      img {
+        // background-color: lightblue;
+        width: 100%;
+      }
+    }
+    .incidents-item-details {
+      // background-color: yellow;
+      padding-left: 16px;
+      float: left;
+      width: 85%;
+      h2 {
+        // background-color: lightgreen;
+        margin: 0;
+        margin-bottom: 8px;
+      }
+      p {
+        // background-color: lightgreen;
+        margin: 0;
+        line-height: 1.5em;
+        &:last-of-type {
+          font-size: 0.7em;
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
+}
