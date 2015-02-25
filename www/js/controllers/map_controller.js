@@ -9,9 +9,7 @@ angular.module('mobility').controller('MapController', function(
   InstructionsService,
   Incidents
   ) {
-    /**
-     * Once state loaded, get put map on scope.
-     */
+    // Once state loaded, put map on scope.
     $scope.$on("$stateChangeSuccess", function() {
 
       //Initialize map properties
@@ -29,17 +27,23 @@ angular.module('mobility').controller('MapController', function(
           }
         }
       };
+
       //bring all incidents into scope
+      //FIX: Create function to continually check for updates to HITraffic API
       $scope.incidents = Incidents.all();
       var incident_num = 1; 
       $scope.incidents.forEach(function (incident, index, array) {
         var html = "<h5 class='incident_type'>" + incident.type + "</h5>"
-          + "<p>Area: " + incident.area + "</p>"
-          + "<p>Address: " + incident.address + "</p>";
+          + "<p class='marker_text'>" + incident.date + "</p>"
+          + "<p class='marker_text'>" + incident.address + "</p>"
+          + "<p class='marker_text'>" + incident.area + "</p>";
+          // + "<a class='marker_text zoom' on-tap='focusHere(incident)'>Zoom Here</a>";
         var marker = {
           lat: incident.lat,
           lng: incident.lng,
-          message: html
+          // getMessageScope: function () { return $scope; },
+          message: html,
+          // compileMessage: true
         }
         //Only add to list of markers if there are coordinates
         if(marker.lat !== null || marker.lng !== null){
@@ -48,7 +52,8 @@ angular.module('mobility').controller('MapController', function(
         incident_num++;
       });
 
-      $scope.goTo();
+      //Go to initial map
+      $scope.focusHere(LocationsService);
 
     });
 
@@ -58,26 +63,20 @@ angular.module('mobility').controller('MapController', function(
      * Center map on specific saved location
      * @param locationKey
      */
-    $scope.goTo = function() {
+    $scope.focusHere = function(incident) {
+      //if incident is starting point (Oahu), zoom out, if not, zoom in more to that location
+      if (incident.starting === true) {
+        var zoom_level = 11;
+      } else {
+        var zoom_level = 14;
+      }
 
-      // var location = LocationsService.savedLocations[locationKey];
-      var location = LocationsService;
-
+      //set map center
       $scope.map.center  = {
-        lat : location.lat,
-        lng : location.lng,
-        zoom : 11
+        lat : incident.lat,
+        lng : incident.lng,
+        zoom : zoom_level
       };
-
-      // $scope.map.markers[locationKey] = {
-      //   lat:location.lat,
-      //   lng:location.lng,
-      //   message: location.name,
-
-      //   focus: true,
-      //   draggable: false
-      // };
-
     };
 
     /**
