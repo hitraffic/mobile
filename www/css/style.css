@@ -18,7 +18,7 @@ body {
   padding-bottom: 20px; }
   .incidents .incidents-header label.incidents-search-box {
     padding-right: 20px; }
-    .incidents .incidents-header label.incidents-search-box i.incidents-filter-icon {
+    .incidents .incidents-header label.incidents-search-box i.incidents-clear-search {
       cursor: pointer; }
 
 .incidents-item {

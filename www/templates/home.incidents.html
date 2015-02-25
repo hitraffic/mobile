@@ -9,9 +9,8 @@
     <div class="list list-inset">
       <label class="incidents-search-box item item-input">
         <i class="icon ion-search placeholder-icon"></i>
-        <input type="text" placeholder="Search">
-        <!-- TODO: Implement filter UI -->
-        <i class="incidents-filter-icon icon ion-arrow-down-b placeholder-icon" on-tap="closeList()"></i>
+        <input id="searchValue" ng-model="searchValue" type="text" placeholder="Search">
+        <i class="incidents-clear-search icon ion-close placeholder-icon" on-tap="closeList()"></i>
       </label>
     </div>
   </md-toolbar>
@@ -19,7 +18,7 @@
   <!-- Incidents Content -->
   <md-content class="incidents-content">
     <ion-list>
-      <ion-item class="incidents-item item-remove-animate item-avatar item-icon-right" ng-repeat="incident in incidents" type="item-text-wrap">
+      <ion-item class="incidents-item item-remove-animate item-avatar item-icon-right" ng-repeat="incident in filteredIncidents = (incidents | filter:searchFilter) | orderBy : 'date' : reverse=true" type="item-text-wrap">
         <div class="incidents-item-content clearfix" on-tap="closeList()">
           <div class="incidents-item-type">
             <img ng-src="{{incident.icon}}" alt="incident type">
