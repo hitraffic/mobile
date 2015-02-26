@@ -4,7 +4,7 @@ body {
 }
 
 #map {
-  margin-top: 50px;
+   margin-top: 50px;
 }
 
 .scroll, .angular-leaflet-map {
@@ -28,6 +28,10 @@ body {
 //
 // INCIDENTS STYLES
 // __________________
+
+.incidents-toggle {
+  margin-top: 350px;
+}
 
 .incidents {
   // background-color: pink;
