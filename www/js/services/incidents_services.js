@@ -1,6 +1,6 @@
 angular.module('mobility')
 
-.factory('Incidents', function($http) {
+.factory('Incidents', function($http, Settings) {
   // Traffic API mock data
   var incidents = null;
   $http.get('api/incidents.json')
@@ -57,14 +57,13 @@ angular.module('mobility')
   }
 
   function filterIncidents(data) {
-    // TODO: Use actual settings service; it's mock data for now
-    var userAreas = ['AIEA', 'HAWAII KAI', 'PEARL CITY', 'KAKAAKO', 'KAILUA', 'KALIHI', 'AIRPORT'];
-    var userTypes = ['MOTOR VEHICLE COLLISION', 'HAZARDOUS DRIVER', 'STALLED/HAZARDOUS VEHICLE'];
+    var userTypes = Settings.getEnabledTypes();
+    var userAreas = Settings.getEnabledAreas();
 
     var filteredIncidents = data;
     if (filteredIncidents !== null) {
       filteredIncidents = filteredIncidents.filter(function(item) {
-        return userAreas.indexOf(item.area) !== -1 && userTypes.indexOf(item.type) !== -1
+        return userTypes.indexOf(item.type) !== -1 && userAreas.indexOf(item.area) !== -1;
       });
     }
 
