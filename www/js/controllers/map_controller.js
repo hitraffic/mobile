@@ -30,30 +30,6 @@ angular.module('mobility').controller('MapController', function(
         }
       };
 
-      // $scope.controls = {
-      //   custom: []
-      // }
-
-      // var menu_control = L.control();
-      // menu_control.setPosition('topleft');
-      // menu_control.onAdd = function () {
-      //   var className = 'leaflet-menu',
-      //     container = L.DomUtil.create('div', className + 'leaflet-bar');
-      //   return container;
-      // }
-
-      // menu_control.onAdd();
-      // $scope.controls.custom.push(menu_control);
-
-      // L.easyButton("fa fa-bars",
-      //   function (argument) {
-      //     // body...
-      //   },
-      //   "BUTTON",
-      //   "#map"
-      // );
-
-
       //bring all incidents into scope
       //FIX: Create function to continually check for updates to HITraffic API
       $scope.incidents = [];
@@ -81,11 +57,7 @@ angular.module('mobility').controller('MapController', function(
           incident_num++;
         });
         $scope.focusHere(LocationsService);
-      });
-
-
-      //Go to initial map
-      // $scope.focusHere(LocationsService);
+      });;
 
     });
 
@@ -114,30 +86,30 @@ angular.module('mobility').controller('MapController', function(
     /**
      * Center map on user's current position
      */
-    // $scope.locate = function(){
+    $scope.locate = function(){
 
-    //   $cordovaGeolocation
-    //     .getCurrentPosition()
-    //     .then(function (position) {
-    //       $scope.map.center.lat  = position.coords.latitude;
-    //       $scope.map.center.lng = position.coords.longitude;
-    //       $scope.map.center.zoom = 15;
+      $cordovaGeolocation
+        .getCurrentPosition()
+        .then(function (position) {
+          $scope.map.center.lat  = position.coords.latitude;
+          $scope.map.center.lng = position.coords.longitude;
+          $scope.map.center.zoom = 15;
 
-    //       $scope.map.markers.now = {
-    //         lat:position.coords.latitude,
-    //         lng:position.coords.longitude,
-    //         message: "You Are Here",
-    //         focus: true,
-    //         draggable: false
-    //       };
+          $scope.map.markers.now = {
+            lat:position.coords.latitude,
+            lng:position.coords.longitude,
+            message: "You Are Here",
+            focus: true,
+            draggable: false
+          };
 
-    //     }, function(err) {
-    //       // error
-    //       console.log("Location error!");
-    //       console.log(err);
-    //     });
+        }, function(err) {
+          // error
+          console.log("Location error!");
+          console.log(err);
+        });
 
-    // };
+    };
 
   $scope.toggleList = function() {
     $mdSidenav('left').toggle();

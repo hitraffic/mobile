@@ -2,9 +2,6 @@ body {
   height: auto;
   min-height: 100%; }
 
-#map {
-  margin-top: 50px; }
-
 .scroll, .angular-leaflet-map {
   height: 100%; }
 
@@ -16,6 +13,10 @@ body {
 
 .tabs.border-top {
   border-top: 1px solid #ddd !important; }
+
+.bar {
+  background-color: #2196F3;
+  border: none; }
 
 .incidents-toggle {
   margin-top: 350px; }
