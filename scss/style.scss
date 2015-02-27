@@ -3,6 +3,7 @@ body {
   min-height: 100%;
 }
 
+
 .scroll, .angular-leaflet-map {
   height: 100%;
 }
@@ -24,6 +25,24 @@ body {
 //
 // INCIDENTS STYLES
 // __________________
+
+//Navbar
+.bar {
+  background-color: #2196F3;
+  border: none;
+  h1.title {
+    color: white;
+  }
+  .ion-navicon, .ion-gear-a {
+    font-size: 25px;
+    color: white;
+  }
+}
+
+
+.incidents-toggle {
+  margin-top: 350px;
+}
 
 .incidents {
   // background-color: pink;

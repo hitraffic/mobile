@@ -23,7 +23,7 @@ angular.module('mobility', [
 
 .config(function($stateProvider, $urlRouterProvider) {
   // For any unmatched URL, redirect to /home/map
-  $urlRouterProvider.otherwise('/home/map');
+  $urlRouterProvider.otherwise('/map');
   // Set up states
   $stateProvider
     .state('splash', {
@@ -31,20 +31,20 @@ angular.module('mobility', [
       templateUrl: 'templates/splash.html',
       controller: 'SplashController'
     })
-    .state('home', {
-      url: '/home',
-      abstract: true,
-      templateUrl: 'templates/home.html'
-    })
-    .state('home.map', {
+    // .state('home', {
+    //   url: '/home',
+    //   abstract: true,
+    //   templateUrl: 'templates/home.html'
+    // })
+    // .state('home.map', {
+    //   url: '/map',
+    //   templateUrl: 'templates/home.map.html',
+    //   controller: 'MapController'
+    // })
+    .state('map', {
       url: '/map',
-      templateUrl: 'templates/home.map.html',
+      templateUrl: 'templates/map.html',
       controller: 'MapController'
-    })
-    .state('home.incidents', {
-      url: '/incidents',
-      templateUrl: 'templates/home.incidents.html',
-      controller: 'IncidentsController'
     })
     .state('home.settings', {
       url: '/settings',

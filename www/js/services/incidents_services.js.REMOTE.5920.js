@@ -3,15 +3,14 @@ angular.module('mobility')
 .factory('Incidents', function($http) {
   // Traffic API mock data
   var incidents = null;
-  // $http.get('api/incidents.json')
-  //   .success(function(data, status, headers, config) {
-  //     incidents = data;
-  //     debugger;
-  //   })
-  //   .error(function(data, status, headers, config) {
-  //     console.log('Error in requesting the incidents resource:');
-  //     console.log(data);
-  //   });
+  $http.get('api/incidents.json')
+    .success(function(data, status, headers, config) {
+      incidents = data;
+    })
+    .error(function(data, status, headers, config) {
+      console.log('Error in requesting the incidents resource:');
+      console.log(data);
+    });
 
   var ICON_TYPES = {
     DEFAULT: 'img/ionic.png',
@@ -74,11 +73,8 @@ angular.module('mobility')
 
   return {
     all: function() {
-      // var filteredIncidents = filterIncidents(incidents);
-      // return prepareDataForDisplay(filteredIncidents);
-      return $http.get('api/incidents.json').then(function (response) {
-        return prepareDataForDisplay(filterIncidents(response.data));
-      });
+      var filteredIncidents = filterIncidents(incidents);
+      return prepareDataForDisplay(filteredIncidents);
     },
     remove: function(incident) {
       incidents.splice(incidents.indexOf(incident), 1);
