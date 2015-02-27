@@ -18,7 +18,7 @@ angular.module('mobility').controller('MapController', function(
         defaults: {
           tileLayer: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
           maxZoom: 18,
-          zoomControlPosition: 'bottomleft'
+          zoomControlPosition: 'topright'
         },
         center: {},
         markers : {},
