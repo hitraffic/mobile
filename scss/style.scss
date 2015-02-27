@@ -26,9 +26,19 @@ body {
 // INCIDENTS STYLES
 // __________________
 
+//Navbar
 .bar {
   background-color: #2196F3;
   border: none;
+  h1.title {
+    color: white;
+  }
+}
+
+//Menu Icon
+.ion-navicon {
+  font-size: 25px;
+  color: white;
 }
 
 .incidents-toggle {

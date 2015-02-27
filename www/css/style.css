@@ -17,6 +17,12 @@ body {
 .bar {
   background-color: #2196F3;
   border: none; }
+  .bar h1.title {
+    color: white; }
+
+.ion-navicon {
+  font-size: 25px;
+  color: white; }
 
 .incidents-toggle {
   margin-top: 350px; }
