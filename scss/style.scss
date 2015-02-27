@@ -33,13 +33,12 @@ body {
   h1.title {
     color: white;
   }
+  .ion-navicon, .ion-gear-a {
+    font-size: 25px;
+    color: white;
+  }
 }
 
-//Menu Icon
-.ion-navicon {
-  font-size: 25px;
-  color: white;
-}
 
 .incidents-toggle {
   margin-top: 350px;

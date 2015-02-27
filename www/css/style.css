@@ -19,10 +19,9 @@ body {
   border: none; }
   .bar h1.title {
     color: white; }
-
-.ion-navicon {
-  font-size: 25px;
-  color: white; }
+  .bar .ion-navicon, .bar .ion-gear-a {
+    font-size: 25px;
+    color: white; }
 
 .incidents-toggle {
   margin-top: 350px; }
