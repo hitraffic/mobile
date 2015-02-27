@@ -8,12 +8,13 @@ angular.module('mobility').controller('MapController', function(
   $mdSidenav,
   LocationsService,
   InstructionsService,
-  Incidents
+  Incidents,
+  Settings
   ) {
-
 
     $scope.MapController = {};
     $scope.IncidentController = {};
+    $scope.SettingsController = {};
 
     // Once state loaded, put map on scope.
     $scope.$on("$stateChangeSuccess", function() {
@@ -39,9 +40,8 @@ angular.module('mobility').controller('MapController', function(
       //FIX: Create function to continually check for updates to HITraffic API
       $scope.incidents = [];
       Incidents.all().then(function (incidents) {
-        // console.log(incidents);
         $scope.incidents = incidents;
-        var incident_num = 1; 
+        var incident_num = 1;
         $scope.incidents.forEach(function (incident, index, array) {
           var html = "<h5 class='incident_type'>" + incident.type + "</h5>"
             + "<p class='marker_text'>" + incident.date + "</p>"
@@ -65,8 +65,6 @@ angular.module('mobility').controller('MapController', function(
       });;
 
     });
-
-
 
     /**
      * Center map on specific saved location
@@ -116,6 +114,9 @@ angular.module('mobility').controller('MapController', function(
 
     // };
 
+
+    // Incident Controller
+
     $scope.IncidentController.toggleList = function() {
       $mdSidenav('left').toggle();
     };
@@ -141,5 +142,48 @@ angular.module('mobility').controller('MapController', function(
       }
       return false;
     };
+
+
+    // Settings Controller
+
+    $scope.SettingsController.settings = {
+      enableLocationServices: true
+    };
+
+    $ionicModal.fromTemplateUrl('settings-modal.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+
+    $scope.SettingsController.toggleSettings = function() {
+      // Retrieve user settings
+      $scope.SettingsController.preferredTypes = Settings.getTypes();
+      $scope.SettingsController.preferredAreas = Settings.getAreas();
+      $scope.modal.show();
+    };
+
+    $scope.SettingsController.closeSettings = function() {
+      $scope.modal.hide();
+    };
+
+    $scope.SettingsController.saveSettings = function() {
+      // Save user settings
+      Settings.setTypes($scope.SettingsController.preferredTypes);
+      Settings.setAreas($scope.SettingsController.preferredAreas);
+      // Reload the incidents list and apply new filters
+      $scope.incidents = [];
+      Incidents.all().then(function (incidents) {
+        $scope.incidents = incidents;
+      });
+      $scope.modal.hide();
+    };
+
+    $scope.$on('$destroy', function() {
+      $scope.modal.remove();
+    });
+
+
 
   });
