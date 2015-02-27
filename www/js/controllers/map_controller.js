@@ -10,6 +10,11 @@ angular.module('mobility').controller('MapController', function(
   InstructionsService,
   Incidents
   ) {
+
+
+    $scope.MapController = {};
+    $scope.IncidentController = {};
+
     // Once state loaded, put map on scope.
     $scope.$on("$stateChangeSuccess", function() {
 
@@ -56,7 +61,7 @@ angular.module('mobility').controller('MapController', function(
           }
           incident_num++;
         });
-        $scope.focusHere(LocationsService);
+        $scope.MapController.focusHere(LocationsService);
       });;
 
     });
@@ -67,7 +72,7 @@ angular.module('mobility').controller('MapController', function(
      * Center map on specific saved location
      * @param locationKey
      */
-    $scope.focusHere = function(incident) {
+    $scope.MapController.focusHere = function(incident) {
       //if incident is starting point (Oahu), zoom out, if not, zoom in more to that location
       if (incident.starting === true) {
         var zoom_level = 11;
@@ -86,37 +91,55 @@ angular.module('mobility').controller('MapController', function(
     /**
      * Center map on user's current position
      */
-    $scope.locate = function(){
+    // $scope.locate = function(){
 
-      $cordovaGeolocation
-        .getCurrentPosition()
-        .then(function (position) {
-          $scope.map.center.lat  = position.coords.latitude;
-          $scope.map.center.lng = position.coords.longitude;
-          $scope.map.center.zoom = 15;
+    //   $cordovaGeolocation
+    //     .getCurrentPosition()
+    //     .then(function (position) {
+    //       $scope.map.center.lat  = position.coords.latitude;
+    //       $scope.map.center.lng = position.coords.longitude;
+    //       $scope.map.center.zoom = 15;
 
-          $scope.map.markers.now = {
-            lat:position.coords.latitude,
-            lng:position.coords.longitude,
-            message: "You Are Here",
-            focus: true,
-            draggable: false
-          };
+    //       $scope.map.markers.now = {
+    //         lat:position.coords.latitude,
+    //         lng:position.coords.longitude,
+    //         message: "You Are Here",
+    //         focus: true,
+    //         draggable: false
+    //       };
 
-        }, function(err) {
-          // error
-          console.log("Location error!");
-          console.log(err);
-        });
+    //     }, function(err) {
+    //       // error
+    //       console.log("Location error!");
+    //       console.log(err);
+    //     });
 
+    // };
+
+    $scope.IncidentController.toggleList = function() {
+      $mdSidenav('left').toggle();
     };
 
-  $scope.toggleList = function() {
-    $mdSidenav('left').toggle();
-  };
+    $scope.IncidentController.closeList = function() {
+      $mdSidenav('left').close();
+    };
 
-  $scope.closeList = function() {
-    $mdSidenav('left').close();
-  };
+    $scope.IncidentController.remove = function(incident) {
+      Incidents.remove(incident);
+    };
+
+    $scope.IncidentController.searchFilter = function(incident) {
+      var regexp = new RegExp($scope.searchValue, 'i');
+      if (incident.area && incident.area.search(regexp) !== -1) {
+        return true;
+      }
+      else if (incident.address && incident.address.search(regexp) !== -1) {
+        return true;
+      }
+      else if (incident.location && incident.location.search(regexp) !== -1) {
+        return true;
+      }
+      return false;
+    };
 
   });
