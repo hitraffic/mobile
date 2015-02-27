@@ -1,17 +1,16 @@
 angular.module('mobility')
 
-.factory('Incidents', function($http, Settings) {
+.factory('Incidents', function($http) {
   // Traffic API mock data
   var incidents = null;
-  // $http.get('api/incidents.json')
-  //   .success(function(data, status, headers, config) {
-  //     incidents = data;
-  //     debugger;
-  //   })
-  //   .error(function(data, status, headers, config) {
-  //     console.log('Error in requesting the incidents resource:');
-  //     console.log(data);
-  //   });
+  $http.get('api/incidents.json')
+    .success(function(data, status, headers, config) {
+      incidents = data;
+    })
+    .error(function(data, status, headers, config) {
+      console.log('Error in requesting the incidents resource:');
+      console.log(data);
+    });
 
   var ICON_TYPES = {
     DEFAULT: 'img/ionic.png',
@@ -58,13 +57,14 @@ angular.module('mobility')
   }
 
   function filterIncidents(data) {
-    var userTypes = Settings.getEnabledTypes();
-    var userAreas = Settings.getEnabledAreas();
+    // TODO: Use actual settings service; it's mock data for now
+    var userAreas = ['AIEA', 'HAWAII KAI', 'PEARL CITY', 'KAKAAKO', 'KAILUA', 'KALIHI', 'AIRPORT'];
+    var userTypes = ['MOTOR VEHICLE COLLISION', 'HAZARDOUS DRIVER', 'STALLED/HAZARDOUS VEHICLE'];
 
     var filteredIncidents = data;
     if (filteredIncidents !== null) {
       filteredIncidents = filteredIncidents.filter(function(item) {
-        return userTypes.indexOf(item.type) !== -1 && userAreas.indexOf(item.area) !== -1;
+        return userAreas.indexOf(item.area) !== -1 && userTypes.indexOf(item.type) !== -1
       });
     }
 
@@ -73,11 +73,8 @@ angular.module('mobility')
 
   return {
     all: function() {
-      // var filteredIncidents = filterIncidents(incidents);
-      // return prepareDataForDisplay(filteredIncidents);
-      return $http.get('api/incidents.json').then(function (response) {
-        return prepareDataForDisplay(filterIncidents(response.data));
-      });
+      var filteredIncidents = filterIncidents(incidents);
+      return prepareDataForDisplay(filteredIncidents);
     },
     remove: function(incident) {
       incidents.splice(incidents.indexOf(incident), 1);

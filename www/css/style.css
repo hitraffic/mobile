@@ -14,6 +14,18 @@ body {
 .tabs.border-top {
   border-top: 1px solid #ddd !important; }
 
+.bar {
+  background-color: #2196F3;
+  border: none; }
+  .bar h1.title {
+    color: white; }
+  .bar .ion-navicon, .bar .ion-gear-a {
+    font-size: 25px;
+    color: white; }
+
+.incidents-toggle {
+  margin-top: 350px; }
+
 .incidents .incidents-header {
   padding-bottom: 20px; }
   .incidents .incidents-header label.incidents-search-box {
