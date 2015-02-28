@@ -158,6 +158,27 @@
       return false;
     };
 
+    vm.IncidentsController.clearSearch = function() {
+      vm.IncidentsController.searchValue = '';
+    };
+
+    vm.IncidentsController.showClearSearchButton = function() {
+      return vm.IncidentsController.searchValue;
+    };
+
+    vm.IncidentsController.refreshIncidentsList = function() {
+      // Refresh the incidents list and apply new filters
+      vm.incidents = [];
+      IncidentsService.all().then(function (incidents) {
+        vm.incidents = incidents;
+      })
+      .finally(function() {
+        // This event must be called to resume normal use of the list
+        $scope.$broadcast('scroll.refreshComplete');
+        // No need to kick off a digest cycle since we're using a promise
+      });
+    };
+
 
     // Settings Controller
 
