@@ -5,9 +5,7 @@
     .module('mobility')
     .controller('SplashController', SplashController);
 
-  SplashController.$inject = ['$scope'];
-
-  function SplashController($scope) {
+  function SplashController() {
     var vm = this;
     vm.splashText = 'Splash Page';
   }

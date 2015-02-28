@@ -169,18 +169,18 @@
       scope: $scope,
       animation: 'slide-in-up'
     }).then(function(modal) {
-      $scope.modal = modal;
+      vm.modal = modal;
     });
 
     vm.SettingsController.toggleSettings = function() {
       // Retrieve user settings
       vm.SettingsController.preferredTypes = SettingsService.getTypes();
       vm.SettingsController.preferredAreas = SettingsService.getAreas();
-      $scope.modal.show();
+      vm.modal.show();
     };
 
     vm.SettingsController.closeSettings = function() {
-      $scope.modal.hide();
+      vm.modal.hide();
     };
 
     vm.SettingsController.saveSettings = function() {
@@ -192,11 +192,11 @@
       IncidentsService.all().then(function (incidents) {
         vm.incidents = incidents;
       });
-      $scope.modal.hide();
+      vm.modal.hide();
     };
 
     $scope.$on('$destroy', function() {
-      $scope.modal.remove();
+      vm.modal.remove();
     });
 
   }
