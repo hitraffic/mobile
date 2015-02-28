@@ -46,14 +46,14 @@ angular.module('mobility').controller('MapController', function(
           var html = "<h5 class='incident_type'>" + incident.type + "</h5>"
             + "<p class='marker_text'>" + incident.date + "</p>"
             + "<p class='marker_text'>" + incident.address + "</p>"
-            + "<p class='marker_text'>" + incident.area + "</p>";
-            // + "<a class='marker_text zoom' on-tap='focusHere(incident)'>Zoom Here</a>";
+            + "<p class='marker_text'>" + incident.area + "</p>"
+            + "<button class='marker_text zoom' ng-click='focusHere(incident)'>Zoom Here</button>";
           var marker = {
             lat: incident.lat,
             lng: incident.lng,
-            // getMessageScope: function () { return $scope; },
-            message: html,
-            // compileMessage: true
+            getMessageScope: function () { return $scope; },
+            message: $compile(html)($scope),
+            compileMessage: true
           }
           //Only add to list of markers if there are coordinates
           if(marker.lat !== null || marker.lng !== null){
@@ -77,7 +77,7 @@ angular.module('mobility').controller('MapController', function(
       if (incident.starting === true) {
         var zoom_level = 11;
       } else {
-        var zoom_level = 16;
+        var zoom_level = 14;
       }
 
       //set map center
