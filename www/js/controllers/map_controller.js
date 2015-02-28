@@ -70,22 +70,26 @@ angular.module('mobility').controller('MapController', function(
 
     /**
      * Center map on specific saved location
-     * @param locationKey
+     * @param incicent
      */
     $scope.MapController.focusHere = function(incident) {
       //if incident is starting point (Oahu), zoom out, if not, zoom in more to that location
       if (incident.starting === true) {
         var zoom_level = 11;
       } else {
-        var zoom_level = 14;
+        var zoom_level = 16;
       }
 
       //set map center
-      $scope.map.center  = {
-        lat : incident.lat,
-        lng : incident.lng,
-        zoom : zoom_level
-      };
+      if(incident.lat !== null || incident.lng !== null){
+        $scope.map.center  = {
+          lat : incident.lat,
+          lng : incident.lng,
+          zoom : zoom_level
+        };
+      }
+      console.log(incident);
+      console.log($scope.map.center);
     };
 
     /**

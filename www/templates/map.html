@@ -29,7 +29,7 @@
     <md-content class="incidents-content">
       <ion-list>
         <ion-item class="incidents-item item-remove-animate item-avatar item-icon-right" ng-repeat="incident in filteredIncidents = (incidents | filter:searchFilter) | orderBy : 'date' : reverse=true" type="item-text-wrap">
-          <div class="incidents-item-content clearfix" on-tap="IncidentController.closeList()">
+          <div class="incidents-item-content clearfix" on-tap="IncidentController.closeList(); MapController.focusHere(incident)">
             <div class="incidents-item-type">
               <img ng-src="{{incident.icon}}" alt="incident type">
             </div>
@@ -44,8 +44,8 @@
     </md-content>
   </md-sidenav>
 
-  <!-- Map Area -->
-  <leaflet id="map" defaults="map.defaults" center="map.center" markers="map.markers" ng-if="map"></leaflet>
+  <leaflet id="map" defaults="map.defaults" center="map.center" markers="map.markers" ng-if="map" data-tap-disabled="true"></leaflet>
+
 
 </ion-content>
 
