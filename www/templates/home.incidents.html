@@ -1,0 +1,31 @@
+<!-- Incidents Side Nav -->
+<md-sidenav class="incidents md-sidenav-left md-whiteframe-z2" md-component-id="left">
+  <!-- Incidents Header -->
+  <md-toolbar class="incidents-header">
+    <div class="list list-inset">
+      <label class="incidents-search-box item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input id="searchValue" ng-model="home.IncidentsController.searchValue" type="text" placeholder="Search">
+        <i class="incidents-clear-search icon ion-close placeholder-icon" on-tap="home.IncidentsController.closeList()"></i>
+      </label>
+    </div>
+  </md-toolbar>
+
+  <!-- Incidents Content -->
+  <md-content class="incidents-content">
+    <ion-list>
+      <ion-item class="incidents-item item-remove-animate item-avatar item-icon-right" ng-repeat="incident in filteredIncidents = (home.incidents | filter:home.IncidentsController.searchFilter) | orderBy : 'date' : reverse=true" type="item-text-wrap">
+        <div class="incidents-item-content clearfix" on-tap="home.IncidentsController.closeList()">
+          <div class="incidents-item-type">
+            <img ng-src="{{incident.icon}}" alt="incident type">
+          </div>
+          <div class="incidents-item-details">
+            <h2>{{incident.area}}</h2>
+            <p>{{incident.address}}</p>
+            <p>{{incident.date}}</p>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </md-content>
+</md-sidenav>

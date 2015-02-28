@@ -1,3 +1,25 @@
-<a ui-sref="home.map">Map</a>
-<a ui-sref="home.settings">Settings</a>
-<div ui-view></div>
+<!-- Navbar -->
+<ion-header-bar class="bar">
+  <div class="buttons">
+    <md-button class="button button-clear incidents-toggle" on-tap="home.IncidentsController.toggleList()">
+      <i class="icon ion-navicon"></i>
+    </md-button>
+  </div>
+  <h1 class="title">HI Mobility</h1>
+  <div class="buttons">
+    <md-button class="button button-clear settings-toggle" on-tap="home.SettingsController.toggleSettings()">
+      <i class="icon ion-gear-a"></i>
+    </md-button>
+  </div>
+</ion-header-bar>
+
+<ion-content>
+  <div ng-include="'templates/home.incidents.html'"></div>
+
+  <script id="settings-modal.html" type="text/ng-template">
+    <div ng-include="'templates/home.settings.html'"></div>
+  </script>
+
+  <!-- Map Area -->
+  <leaflet id="map" defaults="home.MapController.map.defaults" center="home.MapController.map.center" markers="home.MapController.map.markers" ng-if="home.MapController.map"></leaflet>
+</ion-content>
