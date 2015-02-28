@@ -163,12 +163,7 @@
     };
 
     vm.IncidentsController.showClearSearchButton = function() {
-      if (vm.IncidentsController.searchValue) {
-        return true;
-      }
-      else {
-        return false;
-      }
+      return vm.IncidentsController.searchValue;
     };
 
     vm.IncidentsController.refreshIncidentsList = function() {
