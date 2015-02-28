@@ -1,5 +1,15 @@
-angular.module('mobility')
+(function() {
+  'use strict';
 
-.controller('SplashController', function($scope) {
-  $scope.splashText = 'Splash Page';
-});
+  angular
+    .module('mobility')
+    .controller('SplashController', SplashController);
+
+  SplashController.$inject = ['$scope'];
+
+  function SplashController($scope) {
+    var vm = this;
+    vm.splashText = 'Splash Page';
+  }
+
+})();

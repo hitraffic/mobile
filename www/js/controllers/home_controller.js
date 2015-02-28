@@ -1,26 +1,45 @@
-angular.module('mobility').controller('MapController', function(
-  $scope,
-  $cordovaGeolocation,
-  $stateParams,
-  $ionicModal,
-  $ionicPopup,
-  $compile,
-  $mdSidenav,
-  LocationsService,
-  InstructionsService,
-  Incidents,
-  Settings
-  ) {
+(function() {
+  'use strict';
 
-    $scope.MapController = {};
-    $scope.IncidentController = {};
-    $scope.SettingsController = {};
+  angular
+    .module('mobility')
+    .controller('HomeController', HomeController);
+
+  HomeController.$inject = ['$scope',
+    '$cordovaGeolocation',
+    '$stateParams',
+    '$ionicModal',
+    '$ionicPopup',
+    '$compile',
+    '$mdSidenav',
+    'LocationsService',
+    'InstructionsService',
+    'IncidentsService',
+    'SettingsService'];
+
+  function HomeController($scope,
+    $cordovaGeolocation,
+    $stateParams,
+    $ionicModal,
+    $ionicPopup,
+    $compile,
+    $mdSidenav,
+    LocationsService,
+    InstructionsService,
+    IncidentsService,
+    SettingsService) {
+
+    var vm = this;
+
+    vm.MapController = {};
+    vm.IncidentsController = {};
+    vm.SettingsController = {};
 
     // Once state loaded, put map on scope.
     $scope.$on("$stateChangeSuccess", function() {
 
       //Initialize map properties
-      $scope.map = {
+      vm.MapController.map = {
         defaults: {
           tileLayer: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
           maxZoom: 18,
@@ -38,11 +57,11 @@ angular.module('mobility').controller('MapController', function(
 
       //bring all incidents into scope
       //FIX: Create function to continually check for updates to HITraffic API
-      $scope.incidents = [];
-      Incidents.all().then(function (incidents) {
-        $scope.incidents = incidents;
+      vm.incidents = [];
+      IncidentsService.all().then(function (incidents) {
+        vm.incidents = incidents;
         var incident_num = 1;
-        $scope.incidents.forEach(function (incident, index, array) {
+        vm.incidents.forEach(function (incident, index, array) {
           var html = "<h5 class='incident_type'>" + incident.type + "</h5>"
             + "<p class='marker_text'>" + incident.date + "</p>"
             + "<p class='marker_text'>" + incident.address + "</p>"
@@ -57,11 +76,11 @@ angular.module('mobility').controller('MapController', function(
           }
           //Only add to list of markers if there are coordinates
           if(marker.lat !== null || marker.lng !== null){
-            $scope.map.markers["Incident" + incident_num] = marker;
+            vm.MapController.map.markers["Incident" + incident_num] = marker;
           }
           incident_num++;
         });
-        $scope.MapController.focusHere(LocationsService);
+        vm.MapController.focusHere(LocationsService);
       });;
 
     });
@@ -70,7 +89,7 @@ angular.module('mobility').controller('MapController', function(
      * Center map on specific saved location
      * @param locationKey
      */
-    $scope.MapController.focusHere = function(incident) {
+    vm.MapController.focusHere = function(incident) {
       //if incident is starting point (Oahu), zoom out, if not, zoom in more to that location
       if (incident.starting === true) {
         var zoom_level = 11;
@@ -79,7 +98,7 @@ angular.module('mobility').controller('MapController', function(
       }
 
       //set map center
-      $scope.map.center  = {
+      vm.MapController.map.center  = {
         lat : incident.lat,
         lng : incident.lng,
         zoom : zoom_level
@@ -115,22 +134,18 @@ angular.module('mobility').controller('MapController', function(
     // };
 
 
-    // Incident Controller
+    // Incidents Controller
 
-    $scope.IncidentController.toggleList = function() {
+    vm.IncidentsController.toggleList = function() {
       $mdSidenav('left').toggle();
     };
 
-    $scope.IncidentController.closeList = function() {
+    vm.IncidentsController.closeList = function() {
       $mdSidenav('left').close();
     };
 
-    $scope.IncidentController.remove = function(incident) {
-      Incidents.remove(incident);
-    };
-
-    $scope.IncidentController.searchFilter = function(incident) {
-      var regexp = new RegExp($scope.searchValue, 'i');
+    vm.IncidentsController.searchFilter = function(incident) {
+      var regexp = new RegExp(vm.IncidentsController.searchValue, 'i');
       if (incident.area && incident.area.search(regexp) !== -1) {
         return true;
       }
@@ -146,7 +161,7 @@ angular.module('mobility').controller('MapController', function(
 
     // Settings Controller
 
-    $scope.SettingsController.settings = {
+    vm.SettingsController.settings = {
       enableLocationServices: true
     };
 
@@ -157,25 +172,25 @@ angular.module('mobility').controller('MapController', function(
       $scope.modal = modal;
     });
 
-    $scope.SettingsController.toggleSettings = function() {
+    vm.SettingsController.toggleSettings = function() {
       // Retrieve user settings
-      $scope.SettingsController.preferredTypes = Settings.getTypes();
-      $scope.SettingsController.preferredAreas = Settings.getAreas();
+      vm.SettingsController.preferredTypes = SettingsService.getTypes();
+      vm.SettingsController.preferredAreas = SettingsService.getAreas();
       $scope.modal.show();
     };
 
-    $scope.SettingsController.closeSettings = function() {
+    vm.SettingsController.closeSettings = function() {
       $scope.modal.hide();
     };
 
-    $scope.SettingsController.saveSettings = function() {
+    vm.SettingsController.saveSettings = function() {
       // Save user settings
-      Settings.setTypes($scope.SettingsController.preferredTypes);
-      Settings.setAreas($scope.SettingsController.preferredAreas);
+      SettingsService.setTypes(vm.SettingsController.preferredTypes);
+      SettingsService.setAreas(vm.SettingsController.preferredAreas);
       // Reload the incidents list and apply new filters
-      $scope.incidents = [];
-      Incidents.all().then(function (incidents) {
-        $scope.incidents = incidents;
+      vm.incidents = [];
+      IncidentsService.all().then(function (incidents) {
+        vm.incidents = incidents;
       });
       $scope.modal.hide();
     };
@@ -184,6 +199,5 @@ angular.module('mobility').controller('MapController', function(
       $scope.modal.remove();
     });
 
-
-
-  });
+  }
+})();
