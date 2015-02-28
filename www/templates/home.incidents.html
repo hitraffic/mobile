@@ -6,13 +6,15 @@
       <label class="incidents-search-box item item-input">
         <i class="icon ion-search placeholder-icon"></i>
         <input id="searchValue" ng-model="home.IncidentsController.searchValue" type="text" placeholder="Search">
-        <i class="incidents-clear-search icon ion-close placeholder-icon" on-tap="home.IncidentsController.closeList()"></i>
+        <i class="incidents-clear-search icon ion-close placeholder-icon" on-tap="home.IncidentsController.clearSearch()" ng-show="home.IncidentsController.showClearSearchButton()"></i>
       </label>
     </div>
   </md-toolbar>
 
   <!-- Incidents Content -->
   <md-content class="incidents-content">
+    <ion-refresher pulling-text="Pull to refresh" on-refresh="home.IncidentsController.refreshIncidentsList()">
+    </ion-refresher>
     <ion-list>
       <ion-item class="incidents-item item-remove-animate item-avatar item-icon-right" ng-repeat="incident in filteredIncidents = (home.incidents | filter:home.IncidentsController.searchFilter) | orderBy : 'date' : reverse=true" type="item-text-wrap">
         <div class="incidents-item-content clearfix" on-tap="home.IncidentsController.closeList()">
