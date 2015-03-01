@@ -1,6 +1,14 @@
+@import url("http://fonts.googleapis.com/css?family=Lato:300,400,700|Muli:300,400");
 body {
   height: auto;
   min-height: 100%; }
+
+h1.header-title.title {
+  font-size: 1.6em;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px; }
 
 .scroll, .angular-leaflet-map {
   height: 100%; }
@@ -15,7 +23,7 @@ body {
   border-top: 1px solid #ddd !important; }
 
 .bar {
-  background-color: #2196F3;
+  background-color: #546D6D;
   border: none; }
   .bar h1.title {
     color: white; }
@@ -27,11 +35,17 @@ body {
   margin-top: 350px; }
 
 .incidents .incidents-header {
-  padding-bottom: 20px; }
+  background-color: #546D6D; }
+  .incidents .incidents-header .list.list-inset {
+    margin: 10px; }
   .incidents .incidents-header label.incidents-search-box {
     padding-right: 20px; }
     .incidents .incidents-header label.incidents-search-box i.incidents-clear-search {
       cursor: pointer; }
+.incidents .incidents-content .incidents-item-details {
+  font-family: 'Muli', sans-serif; }
+  .incidents .incidents-content .incidents-item-details h2 {
+    font-family: 'Muli', sans-serif; }
 
 .incidents-item {
   padding: 16px;
@@ -54,3 +68,22 @@ body {
       .incidents-item .incidents-item-content .incidents-item-details p:last-of-type {
         font-size: 0.7em;
         letter-spacing: 1px; }
+
+.settings-header {
+  background-color: #546D6D; }
+  .settings-header .save-settings.button.button-clear {
+    color: #FFFFFF;
+    font-size: 1.3em;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400; }
+
+.settings-divider-header {
+  font-size: 1.2em;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px; }
+
+.location-toggle, .settings-checkbox {
+  font-family: 'Muli', sans-serif; }

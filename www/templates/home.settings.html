@@ -1,16 +1,16 @@
-<div class="modal">
-  <ion-header-bar class="bar bar-header bar-positive">
-    <h1 class="title">Settings</h1>
+<div class="modal settings-modal">
+  <ion-header-bar class="settings-header">
+    <h1 class="header-title title">Settings</h1>
     <div class="buttons">
-      <md-button class="button button-clear" on-tap="home.SettingsController.saveSettings()">
+      <md-button class="save-settings button button-clear" on-tap="home.SettingsController.saveSettings()">
         Save
       </md-button>
     </div>
   </ion-header-bar>
   <ion-content>
-    <div class="item item-toggle">
+    <div class="location-toggle item item-toggle">
       Enable Location Services
-      <label class="toggle">
+      <label class="toggle toggle-dark">
         <input type="checkbox" ng-model="home.SettingsController.settings.enableLocationServices">
         <div class="track">
           <div class="handle"></div>
@@ -19,14 +19,14 @@
     </div>
 
     <div class="card">
-      <div class="item item-divider">
+      <div class="settings-divider-header item item-divider">
         Types
       </div>
       <div class="item item-text-wrap">
         <ion-list class="list">
-          <ion-item class="item item-checkbox" ng-repeat="type in home.SettingsController.preferredTypes">
+          <ion-item class="settings-checkbox item item-checkbox" ng-repeat="type in home.SettingsController.preferredTypes">
             {{type.name}}
-            <label class="checkbox">
+            <label class="checkbox checkbox-dark">
               <input type="checkbox" ng-model="type.enabled">
             </label>
           </ion-item>
@@ -35,14 +35,14 @@
     </div>
 
     <div class="card">
-      <div class="item item-divider">
+      <div class="settings-divider-header item item-divider">
         Areas
       </div>
       <div class="item item-text-wrap">
         <ion-list class="list">
-          <ion-item class="item item-checkbox" ng-repeat="area in home.SettingsController.preferredAreas">
+          <ion-item class="settings-checkbox item item-checkbox" ng-repeat="area in home.SettingsController.preferredAreas">
             {{area.name}}
-            <label class="checkbox">
+            <label class="checkbox checkbox-dark">
               <input type="checkbox" ng-model="area.enabled">
             </label>
           </ion-item>
