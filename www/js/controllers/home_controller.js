@@ -52,7 +52,7 @@
         markers : {},
         controls: {
           custom: [
-            L.control.locate({ 
+            L.control.locate({
               follow: true,
               position: "topright",
             })
@@ -82,7 +82,7 @@
       } else {
         var zoom_level = 14;
       }
-      
+
       //if the incident coordinates exist, center the map on that point
       if(incident.lat !== null || incident.lng !== null){
         vm.MapController.map.center  = {
@@ -100,7 +100,7 @@
 
       //FIX: Need error message for when there are no coordinates
     };
-    
+
     /**
      * Find marker associated with a specific location
      * @param  {object} incident [incident object]
@@ -125,7 +125,7 @@
           + "<p class='marker_text'>" + incident.address + "</p>"
           + "<p class='marker_text'>" + incident.area + "</p>";
           // + "<button class='marker_text zoom' ng-click='focusHere(incident)'>Zoom Here</button>";
-        
+
         //set marker location
         var marker = {
           lat: incident.lat,
@@ -176,21 +176,20 @@
 
     vm.IncidentsController.refreshIncidentsList = function() {
       // Refresh the incidents list and apply new filters
-      vm.IncidentsController.getNewIncidents();
-      vm.MapController.updateMarkers(vm.incidents)
-      .finally(function() {
-        // This event must be called to resume normal use of the list
-        $scope.$broadcast('scroll.refreshComplete');
-        // No need to kick off a digest cycle since we're using a promise
-      });
+      vm.IncidentsController.getNewIncidents()
+        .finally(function() {
+          // This event must be called to resume normal use of the list
+          $scope.$broadcast('scroll.refreshComplete');
+          // No need to kick off a digest cycle since we're using a promise
+        });
     };
 
     vm.IncidentsController.getNewIncidents = function () {
       vm.incidents = [];
-      IncidentsService.all().then(function (incidents) {
+      return IncidentsService.all().then(function (incidents) {
         vm.incidents = incidents;
         vm.MapController.updateMarkers(vm.incidents);
-      })
+      });
     }
 
     // Settings Controller
