@@ -32,6 +32,8 @@ body {
     padding-right: 20px; }
     .incidents .incidents-header label.incidents-search-box i.incidents-clear-search {
       cursor: pointer; }
+.incidents .incidents-content {
+  margin-top: 85px; }
 
 .incidents-item {
   padding: 16px;
