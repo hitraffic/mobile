@@ -1,8 +1,37 @@
+@import url("http://fonts.googleapis.com/css?family=Lato:300,400,700|Muli:300,400");
+
+$color-forest-green: #546D6D;
+
+
+// __________________
+//
+// GENERAL STYLES
+// __________________
+
 body {
   height: auto;
   min-height: 100%;
 }
 
+.bar {
+  background-color: $color-forest-green;
+  border: none;
+  h1.title {
+    color: white;
+  }
+  .ion-navicon, .ion-gear-a {
+    font-size: 25px;
+    color: white;
+  }
+}
+
+h1.header-title.title {
+  font-size: 1.6em;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
 
 .scroll, .angular-leaflet-map {
   height: 100%;
@@ -26,20 +55,6 @@ body {
 // INCIDENTS STYLES
 // __________________
 
-//Navbar
-.bar {
-  background-color: #2196F3;
-  border: none;
-  h1.title {
-    color: white;
-  }
-  .ion-navicon, .ion-gear-a {
-    font-size: 25px;
-    color: white;
-  }
-}
-
-
 .incidents-toggle {
   margin-top: 350px;
 }
@@ -47,8 +62,10 @@ body {
 .incidents {
   // background-color: pink;
   .incidents-header {
-    // background-color: yellow;
-    padding-bottom: 20px;
+    background-color: $color-forest-green;
+    .list.list-inset {
+      margin: 10px;
+    }
     label.incidents-search-box {
       // background-color: lightgreen;
       padding-right: 20px;
@@ -59,6 +76,12 @@ body {
   }
   .incidents-content {
     margin-top: 85px;
+    .incidents-item-details {
+      font-family: 'Muli', sans-serif;
+      h2 {
+        font-family: 'Muli', sans-serif;
+      }
+    }
   }
 }
 
@@ -98,4 +121,33 @@ body {
       }
     }
   }
+}
+
+
+// __________________
+//
+// SETTINGS STYLES
+// __________________
+
+.settings-header {
+  background-color: $color-forest-green;
+  .save-settings.button.button-clear {
+    color: #FFFFFF;
+    font-size: 1.3em;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+}
+
+.settings-divider-header {
+  font-size: 1.2em;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.location-toggle, .settings-checkbox {
+  font-family: 'Muli', sans-serif;
 }
