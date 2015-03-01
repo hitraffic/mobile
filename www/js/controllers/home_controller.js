@@ -50,6 +50,14 @@
         },
         center: {},
         markers : {},
+        controls: {
+          custom: [
+            L.control.locate({ 
+              follow: true,
+              position: "topright",
+            })
+          ]
+        },
         events: {
           map: {
             enable: ['context'],
@@ -132,34 +140,6 @@
         incident_num++;
       });
     }
-
-    /**
-     * Center map on user's current position
-     */
-    // $scope.locate = function(){
-
-    //   $cordovaGeolocation
-    //     .getCurrentPosition()
-    //     .then(function (position) {
-    //       $scope.map.center.lat  = position.coords.latitude;
-    //       $scope.map.center.lng = position.coords.longitude;
-    //       $scope.map.center.zoom = 15;
-
-    //       $scope.map.markers.now = {
-    //         lat:position.coords.latitude,
-    //         lng:position.coords.longitude,
-    //         message: "You Are Here",
-    //         focus: true,
-    //         draggable: false
-    //       };
-
-    //     }, function(err) {
-    //       // error
-    //       console.log("Location error!");
-    //       console.log(err);
-    //     });
-
-    // };
 
 
     // Incidents Controller

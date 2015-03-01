@@ -32,6 +32,3 @@ plugins/
 
 # Users Environment Variables
 .lock-wscript
-
-
-www/js/controllers/unused_functions.js
