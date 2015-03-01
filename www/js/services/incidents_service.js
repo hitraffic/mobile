@@ -60,7 +60,9 @@
       var filteredIncidents = data;
       if (filteredIncidents !== null) {
         filteredIncidents = filteredIncidents.filter(function(item) {
-          return userTypes.indexOf(item.type) !== -1 && userAreas.indexOf(item.area) !== -1;
+          // Remove types and areas the user has deselected in settings
+          //   and remove items with null lat or lng attributes
+          return userTypes.indexOf(item.type) !== -1 && userAreas.indexOf(item.area) !== -1 && item.lat !== null && item.lng !== null;
         });
       }
 

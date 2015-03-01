@@ -43,7 +43,7 @@ h1.header-title.title {
     .incidents .incidents-header label.incidents-search-box i.incidents-clear-search {
       cursor: pointer; }
 .incidents .incidents-content {
-  margin-top: 85px; }
+  margin-top: 65px; }
   .incidents .incidents-content .incidents-item-details {
     font-family: 'Muli', sans-serif; }
     .incidents .incidents-content .incidents-item-details h2 {
