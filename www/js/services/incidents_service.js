@@ -69,7 +69,7 @@
 
     return {
       all: function() {
-        return $http.get('api/incidents.json').then(function (response) {
+        return $http.get('http://api.hitraffic.org/api/incidents/').then(function (response) {
           return prepareDataForDisplay(filterIncidents(response.data));
         });
       },

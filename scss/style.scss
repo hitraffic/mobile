@@ -74,10 +74,13 @@ h1.header-title.title {
       }
     }
   }
-  .incidents-content .incidents-item-details {
-    font-family: 'Muli', sans-serif;
-    h2 {
+  .incidents-content {
+    margin-top: 85px;
+    .incidents-item-details {
       font-family: 'Muli', sans-serif;
+      h2 {
+        font-family: 'Muli', sans-serif;
+      }
     }
   }
 }

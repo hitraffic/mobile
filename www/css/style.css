@@ -3,6 +3,15 @@ body {
   height: auto;
   min-height: 100%; }
 
+.bar {
+  background-color: #546D6D;
+  border: none; }
+  .bar h1.title {
+    color: white; }
+  .bar .ion-navicon, .bar .ion-gear-a {
+    font-size: 25px;
+    color: white; }
+
 h1.header-title.title {
   font-size: 1.6em;
   font-family: 'Lato', sans-serif;
@@ -22,15 +31,6 @@ h1.header-title.title {
 .tabs.border-top {
   border-top: 1px solid #ddd !important; }
 
-.bar {
-  background-color: #546D6D;
-  border: none; }
-  .bar h1.title {
-    color: white; }
-  .bar .ion-navicon, .bar .ion-gear-a {
-    font-size: 25px;
-    color: white; }
-
 .incidents-toggle {
   margin-top: 350px; }
 
@@ -42,10 +42,12 @@ h1.header-title.title {
     padding-right: 20px; }
     .incidents .incidents-header label.incidents-search-box i.incidents-clear-search {
       cursor: pointer; }
-.incidents .incidents-content .incidents-item-details {
-  font-family: 'Muli', sans-serif; }
-  .incidents .incidents-content .incidents-item-details h2 {
+.incidents .incidents-content {
+  margin-top: 85px; }
+  .incidents .incidents-content .incidents-item-details {
     font-family: 'Muli', sans-serif; }
+    .incidents .incidents-content .incidents-item-details h2 {
+      font-family: 'Muli', sans-serif; }
 
 .incidents-item {
   padding: 16px;
