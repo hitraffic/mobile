@@ -17,7 +17,7 @@
     </ion-refresher>
     <ion-list>
       <ion-item class="incidents-item item-remove-animate item-avatar item-icon-right" ng-repeat="incident in filteredIncidents = (home.incidents | filter:home.IncidentsController.searchFilter) | orderBy : 'date' : reverse=true" type="item-text-wrap">
-        <div class="incidents-item-content clearfix" on-tap="home.IncidentsController.closeList()">
+        <div class="incidents-item-content clearfix" on-tap="home.IncidentsController.closeList(); home.MapController.focusHere(incident)">
           <div class="incidents-item-type">
             <img ng-src="{{incident.icon}}" alt="incident type">
           </div>
