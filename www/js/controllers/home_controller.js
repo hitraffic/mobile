@@ -59,36 +59,8 @@
       };
 
       //bring all incidents into scope
-      //FIX: Create function to continually check for updates to HITraffic API
-      vm.incidents = [];
-      IncidentsService.all().then(function (incidents) {
-        vm.incidents = incidents;
-        var incident_num = 1;
-        vm.incidents.forEach(function (incident, index, array) {
-          //html for marker message
-          var html = "<h5 class='incident_type'>" + incident.type + "</h5>"
-            + "<p class='marker_text'>" + incident.date + "</p>"
-            + "<p class='marker_text'>" + incident.address + "</p>"
-            + "<p class='marker_text'>" + incident.area + "</p>"
-            + "<button class='marker_text zoom' ng-click='focusHere(incident)'>Zoom Here</button>";
-          
-          //set marker location
-          var marker = {
-            lat: incident.lat,
-            lng: incident.lng,
-            getMessageScope: function () { return $scope; },
-            message: html,
-            compileMessage: true
-          }
-          //Only add to list of markers if there are coordinates
-          if(marker.lat !== null || marker.lng !== null){
-            vm.MapController.map.markers["Incident" + incident_num] = marker;
-          }
-          incident_num++;
-        });
-        //Center the map in the initial state
-        vm.MapController.focusHere(LocationsService);
-      });;
+      vm.IncidentsController.getNewIncidents();
+      vm.MapController.focusHere(LocationsService);
     });
 
     /**
@@ -133,6 +105,32 @@
           return  markers_obj[marker];
         }
       }
+    }
+
+    vm.MapController.updateMarkers = function (incidents) {
+      vm.MapController.map.markers = {};
+      var incident_num = 1;
+      incidents.forEach(function (incident, index, array) {
+        //html for marker message
+        var html = "<h5 class='incident_type'>" + incident.type + "</h5>"
+          + "<p class='marker_text'>" + incident.date + "</p>"
+          + "<p class='marker_text'>" + incident.address + "</p>"
+          + "<p class='marker_text'>" + incident.area + "</p>";
+          // + "<button class='marker_text zoom' ng-click='focusHere(incident)'>Zoom Here</button>";
+        
+        //set marker location
+        var marker = {
+          lat: incident.lat,
+          lng: incident.lng,
+          message: html,
+        }
+
+        //Only add to list of markers if there are coordinates
+        if(marker.lat !== null || marker.lng !== null){
+          vm.MapController.map.markers["Incident" + incident_num] = marker;
+        }
+        incident_num++;
+      });
     }
 
     /**
@@ -198,10 +196,8 @@
 
     vm.IncidentsController.refreshIncidentsList = function() {
       // Refresh the incidents list and apply new filters
-      vm.incidents = [];
-      IncidentsService.all().then(function (incidents) {
-        vm.incidents = incidents;
-      })
+      vm.IncidentsController.getNewIncidents();
+      vm.MapController.updateMarkers(vm.incidents)
       .finally(function() {
         // This event must be called to resume normal use of the list
         $scope.$broadcast('scroll.refreshComplete');
@@ -209,6 +205,13 @@
       });
     };
 
+    vm.IncidentsController.getNewIncidents = function () {
+      vm.incidents = [];
+      IncidentsService.all().then(function (incidents) {
+        vm.incidents = incidents;
+        vm.MapController.updateMarkers(vm.incidents);
+      })
+    }
 
     // Settings Controller
 
@@ -239,10 +242,7 @@
       SettingsService.setTypes(vm.SettingsController.preferredTypes);
       SettingsService.setAreas(vm.SettingsController.preferredAreas);
       // Reload the incidents list and apply new filters
-      vm.incidents = [];
-      IncidentsService.all().then(function (incidents) {
-        vm.incidents = incidents;
-      });
+      vm.IncidentsController.getNewIncidents();
       vm.modal.hide();
     };
 
