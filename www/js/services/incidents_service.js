@@ -71,7 +71,7 @@
 
     return {
       all: function() {
-        return $http.get('http://api.hitraffic.org/api/incidents/').then(function (response) {
+        return $http.get('http://api.hitraffic.org/v1/incidents/').then(function (response) {
           return prepareDataForDisplay(filterIncidents(response.data));
         });
       },

@@ -84,10 +84,12 @@
       }
 
       //if the incident coordinates exist, center the map on that point
-      if(incident.lat !== null || incident.lng !== null){
+      if (incident.geometry) {
+        var geometry = incident.geometry;
+
         vm.MapController.map.center  = {
-          lat : incident.lat,
-          lng : incident.lng,
+          lat : geometry.latitude,
+          lng : geometry.longitude,
           zoom : zoom_level
         };
       }
@@ -107,9 +109,15 @@
      * @return {object} marker [marker associated with the location]
      */
     vm.MapController.findMarker = function (incident) {
+      if (!incident.geometry) {
+        return null;
+      }
+
       var markers_obj = vm.MapController.map.markers;
+      var geometry = incident.geometry;
+
       for (var marker in markers_obj) {
-        if(markers_obj[marker].lat === incident.lat && markers_obj[marker].lng === incident.lng) {
+        if(markers_obj[marker].lat === geometry.latitude && markers_obj[marker].lng === geometry.longitude) {
           return  markers_obj[marker];
         }
       }
@@ -117,27 +125,25 @@
 
     vm.MapController.updateMarkers = function (incidents) {
       vm.MapController.map.markers = {};
-      var incident_num = 1;
-      incidents.forEach(function (incident, index, array) {
-        //html for marker message
-        var html = "<h5 class='incident_type'>" + incident.type + "</h5>"
-          + "<p class='marker_text'>" + incident.date + "</p>"
-          + "<p class='marker_text'>" + incident.address + "</p>"
-          + "<p class='marker_text'>" + incident.area + "</p>";
-          // + "<button class='marker_text zoom' ng-click='focusHere(incident)'>Zoom Here</button>";
+      incidents.forEach(function (incident, index) {
+        if (incident.geometry) {
+          var geometry = incident.geometry;
 
-        //set marker location
-        var marker = {
-          lat: incident.lat,
-          lng: incident.lng,
-          message: html,
-        }
+          //html for marker message
+          var html = "<h5 class='incident_type'>" + incident.type + "</h5>"
+            + "<p class='marker_text'>" + incident.date + "</p>"
+            + "<p class='marker_text'>" + incident.address + "</p>"
+            + "<p class='marker_text'>" + incident.area + "</p>";
 
-        //Only add to list of markers if there are coordinates
-        if(marker.lat !== null || marker.lng !== null){
-          vm.MapController.map.markers["Incident" + incident_num] = marker;
+          //set marker location
+          var marker = {
+            lat: geometry.latitude,
+            lng: geometry.longitude,
+            message: html,
+          }
+
+          vm.MapController.map.markers["Incident" + (index + 1)] = marker;
         }
-        incident_num++;
       });
     }
 
